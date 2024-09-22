@@ -9,7 +9,8 @@ void main() {
   runApp(const MyApp());
 }
 
-Color greyColor = Color.fromARGB(255, 210, 217, 231);
+Color greyColor = Color.fromARGB(255, 245, 245, 248);
+Color containerColor = Color.fromARGB(255, 240, 240, 240);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

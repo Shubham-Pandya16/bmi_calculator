@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ruler_picker_bn/ruler_picker_bn.dart';
@@ -15,12 +16,11 @@ class _HeightWidgetState extends State<HeightWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(left: 12.sp),
         padding: EdgeInsets.all(12.sp),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-        ),
+            color: containerColor,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Colors.grey, width: 0.5)),
         child: Column(
           children: [
             SizedBox(
@@ -34,12 +34,16 @@ class _HeightWidgetState extends State<HeightWidget> {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 5,
-                    child: RulerPicker(onChange: (val) {
-                      setState(() {
-                        selectedHeight = val;
-                      });
-                    }),
+                    flex: 3,
+                    child: RulerPicker(
+                        minValue: 0,
+                        maxValue: 225,
+                        background: containerColor,
+                        onChange: (val) {
+                          setState(() {
+                            selectedHeight = val;
+                          });
+                        }),
                   ),
                   Expanded(
                     flex: 2,
@@ -49,11 +53,11 @@ class _HeightWidgetState extends State<HeightWidget> {
                         Text(
                           "$selectedHeight",
                           style: TextStyle(
-                              fontSize: 21.sp, fontWeight: FontWeight.w700),
+                              fontSize: 28.sp, fontWeight: FontWeight.w700),
                         ),
                         Text(
                           "CM",
-                          style: TextStyle(fontSize: 12.sp, height: 0.4),
+                          style: TextStyle(fontSize: 14.sp, height: 0.4),
                         )
                       ],
                     ),
