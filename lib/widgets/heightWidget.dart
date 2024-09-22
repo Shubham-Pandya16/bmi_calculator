@@ -28,7 +28,7 @@ class _HeightWidgetState extends State<HeightWidget> {
             ),
             const Text(
               "HEIGHT",
-              style: TextStyle(),
+              style: TextStyle(fontSize: 16),
             ),
             Expanded(
               child: Row(
@@ -36,6 +36,8 @@ class _HeightWidgetState extends State<HeightWidget> {
                   Expanded(
                     flex: 3,
                     child: RulerPicker(
+                        direction: Axis.vertical,
+                        lineColor: Colors.black,
                         minValue: 0,
                         maxValue: 225,
                         background: containerColor,

@@ -4,9 +4,11 @@ import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/widgets/ageWidget.dart';
 import 'package:bmi_calculator/widgets/genderWidget.dart';
 import 'package:bmi_calculator/widgets/heightWidget.dart';
+import 'package:bmi_calculator/widgets/weightWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,9 +27,10 @@ class _HomePageState extends State<HomePage> {
           toolbarHeight: 50,
           surfaceTintColor: Colors.transparent,
           centerTitle: true,
-          title: const Text(
+          title: Text(
             '\nBMI Calculator',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: GoogleFonts.montserratAlternates(
+                fontSize: 20, fontWeight: FontWeight.w700),
           ),
         ),
         body: Center(
@@ -44,15 +47,15 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Expanded(flex: 1, child: HeightWidget()),
                       // Center Division
-                      SizedBox(
-                        width: 8.h,
-                      ),
+                      SizedBox(width: 8.h),
                       Expanded(
                           flex: 1,
                           child: Column(
                             children: [
-                              Expanded(flex: 1, child: AgeWidget()),
-                              Expanded(flex: 1, child: Container()),
+                              Expanded(flex: 2, child: AgeWidget()),
+                              // Center Division
+                              SizedBox(height: 9.h),
+                              Expanded(flex: 3, child: WeightWidget()),
                             ],
                           )),
                     ],

@@ -29,7 +29,7 @@ class _AgeWidgetState extends State<AgeWidget> {
           ),
           const Text(
             "AGE",
-            style: TextStyle(fontSize: 14),
+            style: TextStyle(fontSize: 16,),
           ),
           Expanded(
               child: Row(
