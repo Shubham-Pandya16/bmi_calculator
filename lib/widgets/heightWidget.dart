@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ruler_picker_bn/ruler_picker_bn.dart';
 
 class HeightWidget extends StatefulWidget {
@@ -54,8 +55,10 @@ class _HeightWidgetState extends State<HeightWidget> {
                       children: [
                         Text(
                           "$selectedHeight",
-                          style: TextStyle(
-                              fontSize: 28.sp, fontWeight: FontWeight.w700),
+                          style: GoogleFonts.montserratAlternates (
+                              fontSize: 28.sp,
+                              fontWeight: FontWeight.w700,
+                              color: primaryColor),
                         ),
                         Text(
                           "CM",

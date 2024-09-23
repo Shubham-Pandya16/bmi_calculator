@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class WeightWidget extends StatefulWidget {
@@ -10,7 +11,7 @@ class WeightWidget extends StatefulWidget {
   State<WeightWidget> createState() => _WeightWidgetState();
 }
 
-int weight = 55;
+int selectedWeight = 55;
 
 class _WeightWidgetState extends State<WeightWidget> {
   @override
@@ -32,34 +33,37 @@ class _WeightWidgetState extends State<WeightWidget> {
             "WEIGHT",
             style: TextStyle(fontSize: 16),
           ),
-          SizedBox(
-            height: 50.h,
-          ),
           NumberPicker(
             minValue: 0,
-            maxValue: 200,
-            value: weight,
-            axis: Axis.horizontal,
+            maxValue: 199,
+            value: selectedWeight,
+            axis: Axis.vertical,
             itemWidth: 50.w,
             haptics: true,
             itemCount: 3,
             step: 1,
             decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.black26),
+              border: Border.all(color: primaryColor),
             ),
             zeroPad: false,
             infiniteLoop: true,
             textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
-            selectedTextStyle:
-                TextStyle(fontWeight: FontWeight.w700, fontSize: 26.sp),
+            selectedTextStyle: GoogleFonts.montserratAlternates(
+                fontSize: 28.sp,
+                fontWeight: FontWeight.w700,
+                color: primaryColor),
             onChanged: (int value) {
               setState(() {
-                weight = value;
+                selectedWeight = value;
               });
             },
           ),
-          Text("KILOGRAMS", style: TextStyle(fontSize: 12),)
+          Text(
+            "KILOGRAMS",
+            style: TextStyle(fontSize: 12),
+          )
         ],
       ),
     );

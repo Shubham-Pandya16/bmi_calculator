@@ -1,12 +1,13 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:bmi_calculator/main.dart';
+import 'package:bmi_calculator/pages/resultsPage.dart';
 import 'package:bmi_calculator/widgets/ageWidget.dart';
+import 'package:bmi_calculator/widgets/bmiCalculator.dart';
 import 'package:bmi_calculator/widgets/genderWidget.dart';
 import 'package:bmi_calculator/widgets/heightWidget.dart';
 import 'package:bmi_calculator/widgets/weightWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +31,10 @@ class _HomePageState extends State<HomePage> {
           title: Text(
             '\nBMI Calculator',
             style: GoogleFonts.montserratAlternates(
-                fontSize: 20, fontWeight: FontWeight.w700),
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+              color: primaryColor,
+            ),
           ),
         ),
         body: Center(
@@ -39,10 +43,10 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(height: 12.h),
-                Expanded(flex: 3, child: GenderWidget()),
+                Expanded(flex: 5, child: GenderWidget()),
                 SizedBox(height: 8.h),
                 Expanded(
-                  flex: 6,
+                  flex: 9,
                   child: Row(
                     children: [
                       Expanded(flex: 1, child: HeightWidget()),
@@ -61,7 +65,45 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Expanded(flex: 1, child: Container()),
+                SizedBox(height: 20.h),
+                Expanded(
+                    flex: 2,
+                    child: ClipRRect(
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(15),
+                        splashColor: Colors.red,
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) {
+                                    BMICalculator bmiCalculator = BMICalculator(
+                              height: selectedHeight, weight: selectedWeight);
+                          
+                                    return ResultsPage(
+                                      bmiValue: bmiCalculator.calculateBMI());
+                                  }));
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: primaryColor,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                              child: Text(
+                            "Calculate BMI",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 15,
+                              letterSpacing: 1.2,
+                            ),
+                          )),
+                        ),
+                      ),
+                    )),
+                SizedBox(height: 12.h),
               ],
             ),
           ),
