@@ -47,7 +47,9 @@ class ResultsPage extends StatelessWidget {
               flex: 3,
               child: Column(
                 children: [
-                  SizedBox(height: 30.h,),
+                  SizedBox(
+                    height: 30.h,
+                  ),
                   Text('Body Mass Index'.toUpperCase(),
                       style: GoogleFonts.montserratAlternates(
                         fontSize: 20,
@@ -116,9 +118,10 @@ class ResultsPage extends StatelessWidget {
                   ],
                 ),
               ),
-            ),SizedBox(
-                      height: 15.h,
-                    ),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
             Expanded(
                 flex: 3,
                 child: ClipRRect(

@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bmi_calculator/pages/homePage.dart';
+import 'package:bmi_calculator/pages/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
               textTheme: GoogleFonts.montserratTextTheme(),
               useMaterial3: true,
             ),
-            home: HomePage(),
+            home: SplashScreen(),
           );
         });
   }
