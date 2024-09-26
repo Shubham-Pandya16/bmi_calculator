@@ -11,9 +11,9 @@ class BMICalculator {
 
   double _bmi = 0.0;
 
-  String calculateBMI(){
+  double calculateBMI(){
     _bmi = weight / pow(height / 100, 2);
-    return _bmi.toStringAsFixed(1);
+    return _bmi.toDouble();
   }
 
     String getResult() {
@@ -25,5 +25,20 @@ class BMICalculator {
       return 'Underweight';
     }
   }
-
+  
+  String explanation(){
+    if (_bmi >= 25) {
+      return "Prioritize a balanced diet with reduced portion sizes, "
+      "focusing on whole foods like vegetables, fruits, and lean proteins."
+      " Regular physical activity, including cardio and strength training, "
+      "can help manage weight and improve overall health.";
+    } else if (_bmi > 18.5 && _bmi < 24.9) {
+      return "Maintain a balanced diet and regular physical activity to sustain "
+      "your weight. Aim for a variety of fruits, vegetables, lean proteins, and whole grains.";
+    } else {
+      return "Focus on incorporating nutrient-dense, calorie-rich foods "
+      "like nuts, dairy, and lean proteins into your diet. Consider strength training to build muscle mass";
+    }
+  
+  }
 }

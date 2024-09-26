@@ -29,11 +29,12 @@ class _WeightWidgetState extends State<WeightWidget> {
           SizedBox(
             height: 14.h,
           ),
-          const Text(
+          Text(
             "WEIGHT",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16.sp),
           ),
           NumberPicker(
+            itemHeight: 48,
             minValue: 0,
             maxValue: 199,
             value: selectedWeight,
@@ -49,7 +50,10 @@ class _WeightWidgetState extends State<WeightWidget> {
             ),
             zeroPad: false,
             infiniteLoop: true,
-            textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 14.sp),
+            textStyle: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 14.sp,
+                color: Colors.grey.shade600),
             selectedTextStyle: GoogleFonts.montserratAlternates(
                 fontSize: 28.sp,
                 fontWeight: FontWeight.w700,
@@ -62,7 +66,7 @@ class _WeightWidgetState extends State<WeightWidget> {
           ),
           Text(
             "KILOGRAMS",
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: 12.sp),
           )
         ],
       ),

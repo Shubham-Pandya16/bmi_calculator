@@ -47,8 +47,11 @@ class _AgeWidgetState extends State<AgeWidget> {
                     child: Container(
                       decoration:
                           BoxDecoration(border: Border.all(color: Colors.grey)),
-                      child: Icon(Icons.remove,
-                          size: 20, color: primaryColor),
+                      child: Icon(
+                        Icons.remove,
+                        size: 20,
+                        color: Colors.grey.shade800,
+                      ),
                     ),
                   )),
               Expanded(
@@ -58,10 +61,10 @@ class _AgeWidgetState extends State<AgeWidget> {
                     children: [
                       Text(
                         "$age",
-                          style: GoogleFonts.montserratAlternates (
-                              fontSize: 34.sp,
-                              fontWeight: FontWeight.w700,
-                              color: primaryColor),
+                        style: GoogleFonts.montserratAlternates(
+                            fontSize: 34.sp,
+                            fontWeight: FontWeight.w700,
+                            color: primaryColor),
                       ),
                       const Text(
                         "YEARS",

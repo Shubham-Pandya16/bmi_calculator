@@ -43,10 +43,10 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 SizedBox(height: 12.h),
-                Expanded(flex: 5, child: GenderWidget()),
+                Expanded(flex: 10, child: GenderWidget()),
                 SizedBox(height: 8.h),
                 Expanded(
-                  flex: 9,
+                  flex: 20,
                   child: Row(
                     children: [
                       Expanded(flex: 1, child: HeightWidget()),
@@ -67,22 +67,22 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 20.h),
                 Expanded(
-                    flex: 2,
+                    flex: 3,
                     child: ClipRRect(
                       child: InkWell(
                         borderRadius: BorderRadius.circular(15),
                         splashColor: Colors.red,
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) {
-                                    BMICalculator bmiCalculator = BMICalculator(
-                              height: selectedHeight, weight: selectedWeight);
-                          
-                                    return ResultsPage(
-                                      bmiValue: bmiCalculator.calculateBMI());
-                                  }));
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            BMICalculator bmiCalculator = BMICalculator(
+                                height: selectedHeight, weight: selectedWeight);
+
+                            return ResultsPage(
+                                bmiValue: bmiCalculator.calculateBMI(),
+                                bmiCategory: bmiCalculator.getResult(),
+                                bmiExplanation: bmiCalculator.explanation());
+                          }));
                         },
                         child: Container(
                           width: double.infinity,
@@ -103,7 +103,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     )),
-                SizedBox(height: 12.h),
               ],
             ),
           ),
